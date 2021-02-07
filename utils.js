@@ -59,7 +59,7 @@ export const getGridItemElement = (row, col, text) => {
 export const getGridItemSpanElement = (text) => {
   const element = document.createElement("span");
   element.className = "grid-item-text";
-  element.innerText(text);
+  element.innerText = text;
 
   return element;
 };
