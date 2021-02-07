@@ -15,3 +15,51 @@ export const textToGridArray = (text, row, col) => {
 
   return array;
 };
+
+/**
+ * container class를 가진 wrapper를 반환함
+ * @param {*} row
+ * @param {*} col
+ * @param {*} length
+ */
+export const getContainerElement = (row, col, length) => {
+  const element = document.createElement("div");
+  element.className = "container";
+  element.setAttribute(
+    "style",
+    `grid-template-rows: repeat(${row}, ${length});
+    grid-template-columns: repeat(${col}, ${length});`
+  );
+
+  return element;
+};
+
+/**
+ * grid-item으로 사용할 엘리먼트 반환
+ * @param {*} row
+ * @param {*} col
+ * @param {*} text
+ */
+export const getGridItemElement = (row, col, text) => {
+  const element = document.createElement("div");
+  element.setAttribute("class", "grid-item");
+  element.dataset.row = row;
+  element.dataset.col = col;
+
+  const span = getGridItemSpanElement(text);
+  element.append(span);
+
+  return element;
+};
+
+/**
+ * grid-item-text class를 가진 text를 내용으로하는 span 엘리먼트 반환
+ * @param {*} text
+ */
+export const getGridItemSpanElement = (text) => {
+  const element = document.createElement("span");
+  element.className = "grid-item-text";
+  element.innerText(text);
+
+  return element;
+};
