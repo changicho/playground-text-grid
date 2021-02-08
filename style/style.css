@@ -15,6 +15,8 @@ body {
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(180deg, #fef4f3 0%, #f2f1f6 100%);
+
+  user-select: none;
 }
 
 .container {
@@ -37,4 +39,9 @@ body {
   line-height: 12.5vw;
   transition: transform 0.5s ease-out, color 0.5s ease-out;
   text-align: center;
+}
+
+.center .grid-item-text {
+  color: white;
+  transform: scale(1.5);
 }
