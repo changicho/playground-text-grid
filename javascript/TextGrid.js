@@ -29,15 +29,19 @@ export class TextGrid {
 
   mousemoveHandler(event) {
     event.preventDefault();
+    const { className } = event.target;
+    if (className !== "grid-item" && className !== "grid-item-text") return;
 
-    if (event.target.className !== "grid-item") return;
+    const target =
+      className === "grid-item" ? event.target : event.target.parentNode;
 
     if (this.timer) {
       clearTimeout(this.timer);
     }
     this.timer = setTimeout(function () {
-      console.log(event.target);
-    }, 100);
+      console.log(target);
+      target.classList.add("center");
+    }, 50);
   }
 
   getElement() {
