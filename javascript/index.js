@@ -5,6 +5,6 @@ const rootElement = document.querySelector("#app");
 
 const text = "helloworld";
 const textGrid = new TextGrid(text, 5, 5);
-const textGridElement = textGrid.getElement();
+const textGridElement = textGrid.element;
 
 rootElement.appendChild(textGridElement);

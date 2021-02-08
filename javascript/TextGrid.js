@@ -17,6 +17,27 @@ export class TextGrid {
       length,
     };
     this.gridArray = textToGridArray(text, rowLength, colLength);
+
+    this.element = this.getElement();
+    this.element.addEventListener(
+      "mousemove",
+      this.mousemoveHandler.bind(this)
+    );
+
+    this.timer = undefined;
+  }
+
+  mousemoveHandler(event) {
+    event.preventDefault();
+
+    if (event.target.className !== "grid-item") return;
+
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.timer = setTimeout(function () {
+      console.log(event.target);
+    }, 100);
   }
 
   getElement() {
