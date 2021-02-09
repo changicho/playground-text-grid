@@ -80,5 +80,7 @@ export const getGridItemSpanElement = (text) => {
  * @param {Axis} b 점 b
  */
 export const getDistance = (a, b) => {
-  return Math.sqrt(Math.pow(a.row - b.row, 2) + Math.pow(a.col - b.col, 2));
+  return Math.sqrt(
+    Math.abs(Math.pow(a.row - b.row, 2)) + Math.abs(Math.pow(a.col - b.col, 2))
+  );
 };
