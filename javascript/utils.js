@@ -22,8 +22,7 @@ export const textToGridArray = (text, row, col) => {
  * @param {number} col 가로 사이즈
  */
 export const createEmptyMatrix = (row, col) => {
-  const matrix = new Array(row);
-  matrix.fill(() => new Array(col));
+  const matrix = new Array(row).fill().map(() => new Array(col));
   return matrix;
 };
 
