@@ -2,6 +2,7 @@ import {
   textToGridArray,
   getContainerElement,
   getGridItemElement,
+  createEmptyMatrix,
 } from "./utils.js";
 
 export class TextGrid {
@@ -17,6 +18,7 @@ export class TextGrid {
       length,
     };
     this.gridArray = textToGridArray(text, rowLength, colLength);
+    this.elementMatrix = createEmptyMatrix(rowLength, colLength);
 
     this.element = this.getElement();
     this.element.addEventListener(
@@ -39,7 +41,7 @@ export class TextGrid {
       clearTimeout(this.timer);
     }
     this.timer = setTimeout(function () {
-      console.log(target);
+      // console.log(target);
       target.classList.add("center");
     }, 50);
   }
@@ -51,6 +53,7 @@ export class TextGrid {
     this.gridArray.forEach((line, row) => {
       line.forEach((character, col) => {
         const gridItemEl = getGridItemElement(row, col, character);
+        this.elementMatrix[row][col] = gridItemEl;
         container.append(gridItemEl);
       });
     });
