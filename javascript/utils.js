@@ -1,8 +1,8 @@
 /**
  * 문자열이 반복되는 2차원 배열을 생성해줌
- * @param {*} text 패턴 문자열
- * @param {*} row  세로 사이즈
- * @param {*} col  가로 사이즈
+ * @param {string} text 패턴 문자열
+ * @param {number} row  세로 사이즈
+ * @param {number} col  가로 사이즈
  */
 export const textToGridArray = (text, row, col) => {
   const totalCount = row * col;
@@ -29,9 +29,9 @@ export const createEmptyMatrix = (row, col) => {
 
 /**
  * container class를 가진 wrapper를 반환함
- * @param {*} row
- * @param {*} col
- * @param {*} length
+ * @param {number} row
+ * @param {number} col
+ * @param {number} length
  */
 export const getContainerElement = (row, col, length) => {
   const element = document.createElement("div");
@@ -47,9 +47,9 @@ export const getContainerElement = (row, col, length) => {
 
 /**
  * grid-item으로 사용할 엘리먼트 반환
- * @param {*} row
- * @param {*} col
- * @param {*} text
+ * @param {number} row
+ * @param {number} col
+ * @param {string} text
  */
 export const getGridItemElement = (row, col, text) => {
   const element = document.createElement("div");
