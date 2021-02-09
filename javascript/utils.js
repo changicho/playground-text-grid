@@ -17,6 +17,17 @@ export const textToGridArray = (text, row, col) => {
 };
 
 /**
+ * 빈 2차원 배열을 만들어주는 함수
+ * @param {number} row 세로 사이즈
+ * @param {number} col 가로 사이즈
+ */
+export const createEmptyMatrix = (row, col) => {
+  const matrix = new Array(row);
+  matrix.fill(() => new Array(col));
+  return matrix;
+};
+
+/**
  * container class를 가진 wrapper를 반환함
  * @param {*} row
  * @param {*} col
