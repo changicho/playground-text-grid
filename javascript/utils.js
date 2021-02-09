@@ -73,3 +73,12 @@ export const getGridItemSpanElement = (text) => {
 
   return element;
 };
+
+/**
+ * 두 점사이의 거리를 구해주는 함수
+ * @param {Axis} a 점 a
+ * @param {Axis} b 점 b
+ */
+export const getDistance = (a, b) => {
+  return Math.sqrt(Math.pow(a.row - b.row, 2) + Math.pow(a.col - b.col, 2));
+};
