@@ -1,8 +1,8 @@
 /**
  * 문자열이 반복되는 2차원 배열을 생성해줌
- * @param {*} text 패턴 문자열
- * @param {*} row  세로 사이즈
- * @param {*} col  가로 사이즈
+ * @param {string} text 패턴 문자열
+ * @param {number} row  세로 사이즈
+ * @param {number} col  가로 사이즈
  */
 export const textToGridArray = (text, row, col) => {
   const totalCount = row * col;
@@ -17,10 +17,20 @@ export const textToGridArray = (text, row, col) => {
 };
 
 /**
+ * 빈 2차원 배열을 만들어주는 함수
+ * @param {number} row 세로 사이즈
+ * @param {number} col 가로 사이즈
+ */
+export const createEmptyMatrix = (row, col) => {
+  const matrix = new Array(row).fill().map(() => new Array(col));
+  return matrix;
+};
+
+/**
  * container class를 가진 wrapper를 반환함
- * @param {*} row
- * @param {*} col
- * @param {*} length
+ * @param {number} row
+ * @param {number} col
+ * @param {number} length
  */
 export const getContainerElement = (row, col, length) => {
   const element = document.createElement("div");
@@ -36,9 +46,9 @@ export const getContainerElement = (row, col, length) => {
 
 /**
  * grid-item으로 사용할 엘리먼트 반환
- * @param {*} row
- * @param {*} col
- * @param {*} text
+ * @param {number} row
+ * @param {number} col
+ * @param {string} text
  */
 export const getGridItemElement = (row, col, text) => {
   const element = document.createElement("div");
@@ -62,4 +72,15 @@ export const getGridItemSpanElement = (text) => {
   element.innerText = text;
 
   return element;
+};
+
+/**
+ * 두 점사이의 거리를 구해주는 함수
+ * @param {Axis} a 점 a
+ * @param {Axis} b 점 b
+ */
+export const getDistance = (a, b) => {
+  return Math.sqrt(
+    Math.abs(Math.pow(a.row - b.row, 2)) + Math.abs(Math.pow(a.col - b.col, 2))
+  );
 };
